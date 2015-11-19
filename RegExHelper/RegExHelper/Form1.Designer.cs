@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnGenerate = new System.Windows.Forms.Button();
             this.rtbConstants = new System.Windows.Forms.RichTextBox();
             this.rtbResult = new System.Windows.Forms.RichTextBox();
@@ -51,7 +50,7 @@
             this.rtbConstants.Name = "rtbConstants";
             this.rtbConstants.Size = new System.Drawing.Size(856, 144);
             this.rtbConstants.TabIndex = 1;
-            this.rtbConstants.Text = resources.GetString("rtbConstants.Text");
+            this.rtbConstants.Text = "";
             // 
             // rtbResult
             // 
