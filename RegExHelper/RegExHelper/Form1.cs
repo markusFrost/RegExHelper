@@ -20,6 +20,8 @@ namespace RegExHelper
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            setVisibility(true);
+
             Dictionary<string, string> map = StringHelper.getConstantsMap(rtbSql.Text, cboxDbName.Text);
 
             rtbResult.Text = StringHelper.getSqlQueryByMap(map, rtbSql.Text);
@@ -27,6 +29,8 @@ namespace RegExHelper
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            setVisibility(false);
+
             rtbResult.Clear();
             rtbSql.Clear();
         }
@@ -39,6 +43,7 @@ namespace RegExHelper
         private void Form1_Load(object sender, EventArgs e)
         {
             fillCombobox();
+            setVisibility(false);
         }
 
         private void fillCombobox()
@@ -48,6 +53,12 @@ namespace RegExHelper
             {
                 cboxDbName.Items.Add(name);
             }
+        }
+
+        private void setVisibility(bool fl)
+        {
+            rtbResult.Visible = fl;
+            lableResultText.Visible = fl;
         }
 
         

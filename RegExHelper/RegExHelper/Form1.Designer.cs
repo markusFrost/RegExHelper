@@ -34,7 +34,7 @@
             this.rtbSql = new System.Windows.Forms.RichTextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lableResultText = new System.Windows.Forms.Label();
             this.cboxDbName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -86,15 +86,15 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Введите sql запрос";
             // 
-            // label3
+            // lableResultText
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(436, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Результирующий sql запрос";
+            this.lableResultText.AutoSize = true;
+            this.lableResultText.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lableResultText.Location = new System.Drawing.Point(436, 181);
+            this.lableResultText.Name = "lableResultText";
+            this.lableResultText.Size = new System.Drawing.Size(149, 13);
+            this.lableResultText.TabIndex = 6;
+            this.lableResultText.Text = "Результирующий sql запрос";
             // 
             // cboxDbName
             // 
@@ -122,7 +122,7 @@
             this.ClientSize = new System.Drawing.Size(1066, 640);
             this.Controls.Add(this.cboxDbName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lableResultText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.rtbSql);
@@ -144,7 +144,7 @@
         private System.Windows.Forms.RichTextBox rtbSql;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lableResultText;
         private System.Windows.Forms.ComboBox cboxDbName;
         private System.Windows.Forms.Label label4;
     }
