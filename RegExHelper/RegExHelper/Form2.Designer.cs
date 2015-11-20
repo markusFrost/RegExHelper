@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbConstantRes = new System.Windows.Forms.RichTextBox();
@@ -73,7 +72,7 @@
             this.rtbQuery.Name = "rtbQuery";
             this.rtbQuery.Size = new System.Drawing.Size(856, 231);
             this.rtbQuery.TabIndex = 7;
-            this.rtbQuery.Text = resources.GetString("rtbQuery.Text");
+            this.rtbQuery.Text = "";
             // 
             // btnClear
             // 
