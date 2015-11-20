@@ -20,6 +20,11 @@ namespace RegExHelper
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            if (cboxDbName.Text.Length == 0)
+            {
+                MessageBox.Show("Choose DataBase!");
+                return;
+            }
             setVisibility(true);
 
             Dictionary<string, string> map = StringHelper.getConstantsMap(rtbSql.Text, cboxDbName.Text);
