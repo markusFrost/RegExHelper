@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbConstantRes = new System.Windows.Forms.RichTextBox();
             this.rtbQuery = new System.Windows.Forms.RichTextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
+            this.tbPattern = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(408, 9);
+            this.label2.Location = new System.Drawing.Point(403, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 13);
             this.label2.TabIndex = 9;
@@ -50,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(406, 276);
+            this.label1.Location = new System.Drawing.Point(401, 322);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 13);
             this.label1.TabIndex = 10;
@@ -58,7 +61,7 @@
             // 
             // rtbConstantRes
             // 
-            this.rtbConstantRes.Location = new System.Drawing.Point(8, 302);
+            this.rtbConstantRes.Location = new System.Drawing.Point(3, 348);
             this.rtbConstantRes.Name = "rtbConstantRes";
             this.rtbConstantRes.Size = new System.Drawing.Size(856, 201);
             this.rtbConstantRes.TabIndex = 8;
@@ -66,24 +69,25 @@
             // 
             // rtbQuery
             // 
-            this.rtbQuery.Location = new System.Drawing.Point(8, 32);
+            this.rtbQuery.Location = new System.Drawing.Point(3, 78);
             this.rtbQuery.Name = "rtbQuery";
             this.rtbQuery.Size = new System.Drawing.Size(856, 231);
             this.rtbQuery.TabIndex = 7;
-            this.rtbQuery.Text = "";
+            this.rtbQuery.Text = resources.GetString("rtbQuery.Text");
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(893, 321);
+            this.btnClear.Location = new System.Drawing.Point(888, 367);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(139, 43);
             this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(893, 220);
+            this.btnGenerate.Location = new System.Drawing.Point(888, 266);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(139, 43);
             this.btnGenerate.TabIndex = 11;
@@ -91,14 +95,34 @@
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
+            // tbPattern
+            // 
+            this.tbPattern.Location = new System.Drawing.Point(404, 12);
+            this.tbPattern.Name = "tbPattern";
+            this.tbPattern.Size = new System.Drawing.Size(455, 20);
+            this.tbPattern.TabIndex = 13;
+            this.tbPattern.Text = "private static final String";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(335, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Шаблон:";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(1044, 528);
+            this.ClientSize = new System.Drawing.Size(1044, 580);
+            this.Controls.Add(this.tbPattern);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnGenerate);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtbConstantRes);
@@ -117,5 +141,7 @@
         private System.Windows.Forms.RichTextBox rtbQuery;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.TextBox tbPattern;
+        private System.Windows.Forms.Label label3;
     }
 }
