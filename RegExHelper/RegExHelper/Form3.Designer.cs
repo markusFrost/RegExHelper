@@ -58,7 +58,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(427, 439);
+            this.ClientSize = new System.Drawing.Size(420, 439);
             this.Controls.Add(this.btnGenerateConstants);
             this.Controls.Add(this.btnGetSqlQuery);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
