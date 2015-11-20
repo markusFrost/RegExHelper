@@ -81,6 +81,7 @@ namespace RegExHelper
 
             List<string> listTableNames = DbMysqlHelper.getInstance().getTableNames(dbName);
 
+            // output tables
             foreach (string tableName in listTableNames)
             {
                 resultValue += patternConst + " " + (tableName + "_table").ToUpper() + " = " + "\"" + tableName + "\"" + ";" + "\n";
@@ -89,13 +90,14 @@ namespace RegExHelper
             resultValue += "\n";
 
             Dictionary<string, string> map = DbMysqlHelper.getInstance().getMapColumns(listTableNames, dbName, patternConst);
-
+            
+            //output columns
             foreach (string key in map.Keys)
             {
                 resultValue += map[key];
             }
 
-
+            // save or change date
             DbEntityHelper.getInstance().addResultWork(dbName, resultValue);
 
             return resultValue;
