@@ -76,6 +76,8 @@ namespace RegExHelper
                 sqlValue = rgx.Replace(sqlValue, replace);
             }
 
+            sqlValue = sqlValue.Replace(" . ", ".");
+
             rtbResult.Text = sqlValue;
         }
 
