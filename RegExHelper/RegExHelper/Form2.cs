@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,61 @@ namespace RegExHelper
 {
     public partial class Form2 : Form
     {
+
+       
+        
+
+
+        public void AddResultWork( ResultWorkItem item )
+        {
+            if (!WasUpdateResultWork(item))
+            {
+                using (var db = new MyContext())
+                {
+                    db.ResultWorks.Add(item);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public bool WasUpdateResultWork( ResultWorkItem item )
+        {
+            using (var db = new MyContext())
+            {
+                //var p = db.Res .Where(e => e.Id == 4).First<Person>();
+                var rw = db.ResultWorks.Where(e => e.DbName == item.DbName);
+
+                if (rw.Count() == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    rw.First<ResultWorkItem>().ConstantsValues = item.ConstantsValues;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+
+        }
+
+        private void fillCombobox()
+        {
+            using (var db = new MyContext())
+            {
+                //var p = db.Res .Where(e => e.Id == 4).First<Person>();
+                var list = db.ResultWorks.Where(e => e.Id >= 0).ToList<ResultWorkItem>();
+
+                foreach (var item in list)
+                {
+                    cboxDbName.Items.Add(item.DbName);
+                }
+
+                
+            }
+        }
+
+
         public Form2()
         {
             InitializeComponent();
@@ -25,6 +81,8 @@ namespace RegExHelper
             meth(cboxDbName.Text, tbPattern.Text );
            
         }
+
+       
 
         private void meth1( string name )
         {
@@ -89,6 +147,12 @@ namespace RegExHelper
                 resultValue += map[key];
             }
 
+            ResultWorkItem item = new ResultWorkItem();
+            item.DbName = dbName;
+            item.ConstantsValues = resultValue;
+
+            AddResultWork(item);
+
             rtbConstantRes.Text = resultValue;
 
             myConn.Close();
@@ -102,11 +166,18 @@ namespace RegExHelper
 
        
 
+       
+
          
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             rtbConstantRes.Clear();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            fillCombobox();
         }
 
         /*string input = rtbQuery.Text.Replace("`", "");
