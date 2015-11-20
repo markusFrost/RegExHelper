@@ -36,7 +36,7 @@
             // btnGetSqlQuery
             // 
             this.btnGetSqlQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGetSqlQuery.Location = new System.Drawing.Point(72, 99);
+            this.btnGetSqlQuery.Location = new System.Drawing.Point(61, 256);
             this.btnGetSqlQuery.Name = "btnGetSqlQuery";
             this.btnGetSqlQuery.Size = new System.Drawing.Size(259, 65);
             this.btnGetSqlQuery.TabIndex = 0;
@@ -47,7 +47,7 @@
             // btnGenerateConstants
             // 
             this.btnGenerateConstants.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGenerateConstants.Location = new System.Drawing.Point(72, 204);
+            this.btnGenerateConstants.Location = new System.Drawing.Point(61, 90);
             this.btnGenerateConstants.Name = "btnGenerateConstants";
             this.btnGenerateConstants.Size = new System.Drawing.Size(259, 66);
             this.btnGenerateConstants.TabIndex = 0;
@@ -60,7 +60,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(420, 439);
+            this.ClientSize = new System.Drawing.Size(390, 439);
             this.Controls.Add(this.btnGenerateConstants);
             this.Controls.Add(this.btnGetSqlQuery);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
