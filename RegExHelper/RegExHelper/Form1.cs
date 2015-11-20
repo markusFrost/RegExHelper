@@ -32,6 +32,8 @@ namespace RegExHelper
 
             input = input.Replace("\"", "|");
 
+            map.Clear();
+
             foreach (Match match in Regex.Matches(input, pattern1, RegexOptions.IgnoreCase))
             {
                 string key = null;
@@ -75,6 +77,13 @@ namespace RegExHelper
             }
 
             rtbResult.Text = sqlValue;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            rtbConstants.Clear();
+            rtbResult.Clear();
+            rtbSql.Clear();
         }
 
         

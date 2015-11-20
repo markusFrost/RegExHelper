@@ -32,6 +32,7 @@
             this.rtbConstants = new System.Windows.Forms.RichTextBox();
             this.rtbResult = new System.Windows.Forms.RichTextBox();
             this.rtbSql = new System.Windows.Forms.RichTextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGenerate
@@ -54,9 +55,9 @@
             // 
             // rtbResult
             // 
-            this.rtbResult.Location = new System.Drawing.Point(12, 392);
+            this.rtbResult.Location = new System.Drawing.Point(12, 331);
             this.rtbResult.Name = "rtbResult";
-            this.rtbResult.Size = new System.Drawing.Size(856, 159);
+            this.rtbResult.Size = new System.Drawing.Size(856, 268);
             this.rtbResult.TabIndex = 3;
             this.rtbResult.Text = "";
             // 
@@ -64,15 +65,26 @@
             // 
             this.rtbSql.Location = new System.Drawing.Point(12, 214);
             this.rtbSql.Name = "rtbSql";
-            this.rtbSql.Size = new System.Drawing.Size(856, 127);
+            this.rtbSql.Size = new System.Drawing.Size(856, 88);
             this.rtbSql.TabIndex = 4;
             this.rtbSql.Text = "";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(881, 144);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 640);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.rtbSql);
             this.Controls.Add(this.rtbResult);
             this.Controls.Add(this.rtbConstants);
@@ -89,6 +101,7 @@
         private System.Windows.Forms.RichTextBox rtbConstants;
         private System.Windows.Forms.RichTextBox rtbResult;
         private System.Windows.Forms.RichTextBox rtbSql;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
