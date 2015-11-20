@@ -86,6 +86,11 @@ namespace RegExHelper
             rtbSql.Clear();
         }
 
+        private void rtbResult_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
 
 
