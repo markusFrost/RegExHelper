@@ -131,7 +131,7 @@ namespace RegExHelper
                 while (reader.Read())
                 {
                     string columnName = reader["Field"].ToString();
-                    string strValue = patternConst + " " + columnName.ToUpper() + " = " + columnName + ";" + "\n";
+                    string strValue = patternConst + " " + columnName.ToUpper() + " = " + "\"" +  columnName + "\"" +  ";" + "\n";
                     if (!map.ContainsKey(columnName))
                     {
                         map.Add(columnName, strValue);

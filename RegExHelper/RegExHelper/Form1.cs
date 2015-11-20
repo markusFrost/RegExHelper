@@ -18,13 +18,30 @@ namespace RegExHelper
             InitializeComponent();
         }
 
+        private string getConstantsByDbName(string dbName)
+        {
+            using (var db = new MyContext())
+            {
+                var rw = db.ResultWorks.Where(e => e.DbName == dbName);
+
+                if (rw.Count() == 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    return rw.First<ResultWorkItem>().ConstantsValues;
+                }
+            }
+        }
+
         private void btnGenerate_Click(object sender, EventArgs e)
         {
 
             Dictionary<string, string> map = new Dictionary<string, string>();
 
             string pattern1 = @"\b\w+\s*\=\s*\|\b\w+\|\;";
-            string input = rtbConstants.Text;
+            string input = getConstantsByDbName ( cboxDbName.Text);// rtbConstants.Text;
 
             string pattern2 = @"\w+";
 
@@ -85,7 +102,7 @@ namespace RegExHelper
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            rtbConstants.Clear();
+            //rtbConstants.Clear();
             rtbResult.Clear();
             rtbSql.Clear();
         }
@@ -93,6 +110,27 @@ namespace RegExHelper
         private void rtbResult_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            fillCombobox();
+        }
+
+        private void fillCombobox()
+        {
+            using (var db = new MyContext())
+            {
+                //var p = db.Res .Where(e => e.Id == 4).First<Person>();
+                var list = db.ResultWorks.Where(e => e.Id >= 0).ToList<ResultWorkItem>();
+
+                foreach (var item in list)
+                {
+                    cboxDbName.Items.Add(item.DbName);
+                }
+
+
+            }
         }
 
         
