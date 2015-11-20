@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnGenerate = new System.Windows.Forms.Button();
             this.rtbConstants = new System.Windows.Forms.RichTextBox();
             this.rtbResult = new System.Windows.Forms.RichTextBox();
@@ -127,6 +128,7 @@
             this.Controls.Add(this.rtbResult);
             this.Controls.Add(this.rtbConstants);
             this.Controls.Add(this.btnGenerate);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

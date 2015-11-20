@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.btnGetSqlQuery = new System.Windows.Forms.Button();
             this.btnGenerateConstants = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             this.ClientSize = new System.Drawing.Size(427, 439);
             this.Controls.Add(this.btnGenerateConstants);
             this.Controls.Add(this.btnGetSqlQuery);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
             this.ResumeLayout(false);
 
