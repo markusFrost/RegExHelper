@@ -22,8 +22,13 @@ namespace RegExHelper
         private void btnGenerate_Click(object sender, EventArgs e)
         {
 
-            meth(tbDbName.Text, tbPattern.Text );
+            meth(cboxDbName.Text, tbPattern.Text );
            
+        }
+
+        private void meth1( string name )
+        {
+
         }
 
         private void meth(string dbName, string patternConst)
@@ -101,7 +106,6 @@ namespace RegExHelper
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            rtbQuery.Clear();
             rtbConstantRes.Clear();
         }
 

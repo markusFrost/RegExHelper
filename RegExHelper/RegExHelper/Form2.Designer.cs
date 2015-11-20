@@ -29,33 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.rtbConstantRes = new System.Windows.Forms.RichTextBox();
-            this.rtbQuery = new System.Windows.Forms.RichTextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.tbPattern = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbDbName = new System.Windows.Forms.TextBox();
+            this.cboxDbName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(403, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Введите sql запрос";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(401, 322);
+            this.label1.Location = new System.Drawing.Point(410, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 13);
             this.label1.TabIndex = 10;
@@ -63,19 +51,11 @@
             // 
             // rtbConstantRes
             // 
-            this.rtbConstantRes.Location = new System.Drawing.Point(3, 348);
+            this.rtbConstantRes.Location = new System.Drawing.Point(12, 79);
             this.rtbConstantRes.Name = "rtbConstantRes";
-            this.rtbConstantRes.Size = new System.Drawing.Size(856, 201);
+            this.rtbConstantRes.Size = new System.Drawing.Size(856, 467);
             this.rtbConstantRes.TabIndex = 8;
             this.rtbConstantRes.Text = "";
-            // 
-            // rtbQuery
-            // 
-            this.rtbQuery.Location = new System.Drawing.Point(3, 78);
-            this.rtbQuery.Name = "rtbQuery";
-            this.rtbQuery.Size = new System.Drawing.Size(856, 231);
-            this.rtbQuery.TabIndex = 7;
-            this.rtbQuery.Text = "";
             // 
             // btnClear
             // 
@@ -125,13 +105,13 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "База Данных";
             // 
-            // tbDbName
+            // cboxDbName
             // 
-            this.tbDbName.Location = new System.Drawing.Point(118, 12);
-            this.tbDbName.Name = "tbDbName";
-            this.tbDbName.Size = new System.Drawing.Size(176, 20);
-            this.tbDbName.TabIndex = 13;
-            this.tbDbName.Text = "avia";
+            this.cboxDbName.FormattingEnabled = true;
+            this.cboxDbName.Location = new System.Drawing.Point(118, 11);
+            this.cboxDbName.Name = "cboxDbName";
+            this.cboxDbName.Size = new System.Drawing.Size(121, 21);
+            this.cboxDbName.TabIndex = 14;
             // 
             // Form2
             // 
@@ -139,16 +119,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(1044, 580);
-            this.Controls.Add(this.tbDbName);
+            this.Controls.Add(this.cboxDbName);
             this.Controls.Add(this.tbPattern);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtbConstantRes);
-            this.Controls.Add(this.rtbQuery);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -159,15 +137,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox rtbConstantRes;
-        private System.Windows.Forms.RichTextBox rtbQuery;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.TextBox tbPattern;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbDbName;
+        private System.Windows.Forms.ComboBox cboxDbName;
     }
 }
