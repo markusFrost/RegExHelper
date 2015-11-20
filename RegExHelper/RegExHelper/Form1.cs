@@ -25,9 +25,12 @@ namespace RegExHelper
                 MessageBox.Show("Choose DataBase!");
                 return;
             }
+
             setVisibility(true);
 
-            Dictionary<string, string> map = StringHelper.getConstantsMap(rtbSql.Text, cboxDbName.Text);
+            string input = DbEntityHelper.getInstance().getConstantsByDbName( cboxDbName.Text );
+
+            Dictionary<string, string> map = StringHelper.getConstantsMap(rtbSql.Text, input);
 
             rtbResult.Text = StringHelper.getSqlQueryByMap(map, rtbSql.Text);
         }

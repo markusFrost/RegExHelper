@@ -35,12 +35,11 @@ namespace RegExHelper
             return sqlValue;
         }
 
-        public static Dictionary<string, string> getConstantsMap(string sqlValue, string dbName )
+        public static Dictionary<string, string> getConstantsMap(string sqlValue, string input )
         {
             Dictionary<string, string> map = new Dictionary<string, string>();
 
-            string pattern1 = @"\b\w+\s*\=\s*\|\b\w+\|\;";
-            string input = DbEntityHelper.getInstance().getConstantsByDbName( dbName );
+            string pattern1 = @"\b\w+\s*\=\s*\|\b\w+\|\;";          
 
             input = input.Replace("\"", "|");
 
