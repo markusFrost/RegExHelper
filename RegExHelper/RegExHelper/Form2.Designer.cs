@@ -37,6 +37,8 @@
             this.btnGenerate = new System.Windows.Forms.Button();
             this.tbPattern = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbDbName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label2
@@ -97,9 +99,9 @@
             // 
             // tbPattern
             // 
-            this.tbPattern.Location = new System.Drawing.Point(404, 12);
+            this.tbPattern.Location = new System.Drawing.Point(604, 12);
             this.tbPattern.Name = "tbPattern";
-            this.tbPattern.Size = new System.Drawing.Size(455, 20);
+            this.tbPattern.Size = new System.Drawing.Size(255, 20);
             this.tbPattern.TabIndex = 13;
             this.tbPattern.Text = "private static final String";
             // 
@@ -107,11 +109,29 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(335, 15);
+            this.label3.Location = new System.Drawing.Point(535, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Шаблон:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(37, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "База Данных";
+            // 
+            // tbDbName
+            // 
+            this.tbDbName.Location = new System.Drawing.Point(118, 12);
+            this.tbDbName.Name = "tbDbName";
+            this.tbDbName.Size = new System.Drawing.Size(176, 20);
+            this.tbDbName.TabIndex = 13;
+            this.tbDbName.Text = "avia";
             // 
             // Form2
             // 
@@ -119,8 +139,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(1044, 580);
+            this.Controls.Add(this.tbDbName);
             this.Controls.Add(this.tbPattern);
             this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -145,5 +167,7 @@
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.TextBox tbPattern;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbDbName;
     }
 }

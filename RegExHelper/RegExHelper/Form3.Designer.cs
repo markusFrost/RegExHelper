@@ -35,6 +35,7 @@
             // 
             // btnGetSqlQuery
             // 
+            this.btnGetSqlQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnGetSqlQuery.Location = new System.Drawing.Point(72, 99);
             this.btnGetSqlQuery.Name = "btnGetSqlQuery";
             this.btnGetSqlQuery.Size = new System.Drawing.Size(259, 65);
@@ -45,6 +46,7 @@
             // 
             // btnGenerateConstants
             // 
+            this.btnGenerateConstants.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnGenerateConstants.Location = new System.Drawing.Point(72, 204);
             this.btnGenerateConstants.Name = "btnGenerateConstants";
             this.btnGenerateConstants.Size = new System.Drawing.Size(259, 66);

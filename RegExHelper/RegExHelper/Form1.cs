@@ -78,6 +78,8 @@ namespace RegExHelper
 
             sqlValue = sqlValue.Replace(" . ", ".");
 
+            sqlValue = "String query = \"" + sqlValue + "\";";
+
             rtbResult.Text = sqlValue;
         }
 
