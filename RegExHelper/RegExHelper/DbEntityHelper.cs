@@ -21,9 +21,9 @@ namespace RegExHelper
            return instance;
        }
 
-       public void putUserDataFromFormGlobalConstant(string dbName, string globalPattern)
+       public void putUserDataFromFormGlobalConstant(string dbName, string globalPattern, string classDbName )
        {
-           using (var db = new DbHelper())
+           using (var db = new MainDbHelper())
            {
                var list = db.ItemsSavedData.Where(e => e.Id >= 0).ToList<ItemSavedData>();
 
@@ -32,6 +32,7 @@ namespace RegExHelper
                    ItemSavedData item = new ItemSavedData();
                    item.LastDbName = dbName;
                    item.GlobalConstPattern = globalPattern;
+                   item.LastClassName = classDbName;
 
                    db.ItemsSavedData.Add(item);
                }
@@ -41,6 +42,7 @@ namespace RegExHelper
 
                    item.LastDbName = dbName;
                    item.GlobalConstPattern = globalPattern;
+                   item.LastClassName = classDbName;
                }
 
                db.SaveChanges();
@@ -50,7 +52,7 @@ namespace RegExHelper
        public ItemSavedData getUserSavedData()
        {
            ItemSavedData item = null;
-           using (var db = new DbHelper())
+           using (var db = new MainDbHelper())
            {
                var list = db.ItemsSavedData.Where(e => e.Id >= 0).ToList<ItemSavedData>();
 
@@ -62,9 +64,9 @@ namespace RegExHelper
            return item;
        }
 
-            public void putUserDataFromFormLocalConstant( string dbName, string localPattern )
+       public void putUserDataFromFormLocalConstant(string dbName, string localPattern, string classDbName)
        {
-           using (var db = new DbHelper())
+           using (var db = new MainDbHelper())
            {
                var list = db.ItemsSavedData.Where(e => e.Id >= 0).ToList<ItemSavedData>(); 
 
@@ -73,6 +75,7 @@ namespace RegExHelper
                    ItemSavedData item = new ItemSavedData();
                    item.LastDbName = dbName;
                    item.LocalConstPattern = localPattern;
+                   item.LastClassName = classDbName;
 
                    db.ItemsSavedData.Add(item);
                }
@@ -82,6 +85,7 @@ namespace RegExHelper
 
                    item.LastDbName = dbName;
                    item.LocalConstPattern = localPattern;
+                   item.LastClassName = classDbName;
                }
 
                db.SaveChanges();
@@ -91,7 +95,7 @@ namespace RegExHelper
 
        public string getConstantsByDbName(string dbName)
        {
-           using (var db = new DbHelper())
+           using (var db = new MainDbHelper())
            {
                var rw = db.ResultItemWorks.Where(e => e.DbName == dbName);
 
@@ -110,7 +114,7 @@ namespace RegExHelper
        public List<string> getDbNames()
        {
            List<string> listNames = new List<string>();
-           using (var db = new DbHelper())
+           using (var db = new MainDbHelper())
            {
                var list = db.ResultItemWorks.Where(e => e.Id >= 0).ToList<ResultItemWork>();
 
@@ -122,15 +126,32 @@ namespace RegExHelper
 
            return listNames;
        }
-       public void addResultWork( string dbName, string resultValue )
+
+       public List<string> getLastDbNames()
+       {
+           List<string> listNames = new List<string>();
+           using (var db = new MainDbHelper())
+           {
+               var list = db.ResultItemWorks.Where(e => e.Id >= 0).ToList<ResultItemWork>();
+
+               foreach (var item in list)
+               {
+                   listNames.Add(item.ClassName);
+               }
+           }
+
+           return listNames;
+       }
+       public void addResultWork(string dbName, string resultValue, string dbClassName)
        {
            ResultItemWork item = new ResultItemWork();
            item.DbName = dbName;
            item.ConstantsValues = resultValue;
+           item.ClassName = dbClassName;
 
            if (!wasUpdateResultWork(item))
            {
-               using (var db = new DbHelper())
+               using (var db = new MainDbHelper())
                {
                    db.ResultItemWorks.Add(item);
                    db.SaveChanges();
@@ -141,7 +162,7 @@ namespace RegExHelper
 
        private bool wasUpdateResultWork(ResultItemWork item)
        {
-           using (var db = new DbHelper())
+           using (var db = new MainDbHelper())
            {
                var rw = db.ResultItemWorks.Where(e => e.DbName == item.DbName);
 

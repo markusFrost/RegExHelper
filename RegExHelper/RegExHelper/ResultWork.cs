@@ -14,6 +14,8 @@ namespace RegExHelper
 
         public string ConstantsValues { get; set; }
 
+        public string ClassName { get; set; }
+
     }
 
 }

@@ -37,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cboxDbName = new System.Windows.Forms.ComboBox();
+            this.cbClassName = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -99,7 +101,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(37, 15);
+            this.label4.Location = new System.Drawing.Point(291, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 9;
@@ -108,10 +110,28 @@
             // cboxDbName
             // 
             this.cboxDbName.FormattingEnabled = true;
-            this.cboxDbName.Location = new System.Drawing.Point(118, 11);
+            this.cboxDbName.Location = new System.Drawing.Point(372, 12);
             this.cboxDbName.Name = "cboxDbName";
             this.cboxDbName.Size = new System.Drawing.Size(121, 21);
             this.cboxDbName.TabIndex = 14;
+            // 
+            // cbClassName
+            // 
+            this.cbClassName.FormattingEnabled = true;
+            this.cbClassName.Location = new System.Drawing.Point(128, 16);
+            this.cbClassName.Name = "cbClassName";
+            this.cbClassName.Size = new System.Drawing.Size(121, 21);
+            this.cbClassName.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(47, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Имя Класса:";
             // 
             // Form2
             // 
@@ -119,6 +139,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(1044, 580);
+            this.Controls.Add(this.cbClassName);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.cboxDbName);
             this.Controls.Add(this.tbPattern);
             this.Controls.Add(this.btnClear);
@@ -146,5 +168,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboxDbName;
+        private System.Windows.Forms.ComboBox cbClassName;
+        private System.Windows.Forms.Label label2;
     }
 }

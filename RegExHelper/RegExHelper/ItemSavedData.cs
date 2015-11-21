@@ -15,5 +15,7 @@ namespace RegExHelper
         public string GlobalConstPattern { get; set; }
 
         public string LocalConstPattern { get; set; }
+
+        public string LastClassName { get; set; }
     }
 }

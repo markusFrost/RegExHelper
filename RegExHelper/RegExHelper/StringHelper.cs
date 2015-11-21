@@ -54,11 +54,9 @@ namespace RegExHelper
             return map1;
         }
 
-        public static string getSqlQueryByMap(Dictionary<string, string> map, Dictionary<string, string> mapConst,  string sqlValue, string dbName)
+        public static string getSqlQueryByMap(Dictionary<string, string> map, Dictionary<string, string> mapConst,  string sqlValue, string dbClassName)
         {
             map = joinMaps(map, mapConst);
-
-            string dbClassName = dbName.Substring(0, 1).ToUpper() + dbName.Substring(1, dbName.Length - 1) + "DB";
 
             foreach (string key in map.Keys)
             {
@@ -124,7 +122,7 @@ namespace RegExHelper
 
         }
 
-        public static string convertSqlQueryToConstants(string dbName, string patternConst)
+        public static string convertSqlQueryToConstants(string dbName, string patternConst, string dbClassName )
         {
             string resultValue = "";
 
@@ -147,7 +145,7 @@ namespace RegExHelper
             }
 
             // save or change date
-            DbEntityHelper.getInstance().addResultWork(dbName, resultValue);
+            DbEntityHelper.getInstance().addResultWork(dbName, resultValue, dbClassName);
 
             return resultValue;
 

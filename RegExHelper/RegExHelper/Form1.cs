@@ -34,9 +34,11 @@ namespace RegExHelper
 
             Dictionary<string, string> mapConst = StringHelper.getLocalConstansMap(rtbSql.Text);
 
-            rtbResult.Text = StringHelper.getLocalConstansListByMap(mapConst, tbPattern.Text) + StringHelper.getSqlQueryByMap(map, mapConst, rtbSql.Text, cboxDbName.Text);
+            rtbResult.Text = StringHelper.getLocalConstansListByMap(mapConst, tbPattern.Text) + StringHelper.getSqlQueryByMap(map, mapConst, rtbSql.Text, cbClassName.Text);
 
-            DbEntityHelper.getInstance().putUserDataFromFormLocalConstant(cboxDbName.Text, tbPattern.Text);
+            DbEntityHelper.getInstance().putUserDataFromFormLocalConstant(cboxDbName.Text, tbPattern.Text, cbClassName.Text );
+
+            // need yo save class name
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -66,12 +68,22 @@ namespace RegExHelper
                 cboxDbName.Items.Add(name);
             }
 
+            List<string> listClassNames = DbEntityHelper.getInstance().getLastDbNames();
+            foreach (var name in listClassNames)
+            {
+                cbClassName.Items.Add(name);
+            }
+
             ItemSavedData item = DbEntityHelper.getInstance().getUserSavedData();
 
             if (item != null)
             {
                 cboxDbName.Text = item.LastDbName;
-                tbPattern.Text = item.LocalConstPattern;
+                if (item.LocalConstPattern != null && item.LocalConstPattern != "")
+                {
+                    tbPattern.Text = item.LocalConstPattern;
+                }
+                cbClassName.Text = item.LastClassName;
             }
         }
 
