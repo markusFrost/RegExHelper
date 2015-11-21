@@ -27,7 +27,12 @@ namespace RegExHelper
                 MessageBox.Show("Choose DataBase!");
                 return;
             }
-            rtbConstantRes.Text = StringHelper.convertSqlQueryToConstants(cboxDbName.Text, tbPattern.Text, cbClassName.Text );
+
+            string resultValue = StringHelper.convertSqlQueryToConstants(cboxDbName.Text, tbPattern.Text); ;
+            rtbConstantRes.Text = resultValue;
+
+            // save or change date
+            DbEntityHelper.getInstance().addResultWork(cboxDbName.Text, resultValue, cbClassName.Text);
 
             DbEntityHelper.getInstance().putUserDataFromFormGlobalConstant(cboxDbName.Text, tbPattern.Text, cbClassName.Text);
         }

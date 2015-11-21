@@ -85,7 +85,7 @@
             this.tbPattern.Name = "tbPattern";
             this.tbPattern.Size = new System.Drawing.Size(255, 20);
             this.tbPattern.TabIndex = 13;
-            this.tbPattern.Text = "private static final String";
+            this.tbPattern.Text = "public static final String";
             // 
             // label3
             // 

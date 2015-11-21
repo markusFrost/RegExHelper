@@ -37,8 +37,7 @@ namespace RegExHelper
             rtbResult.Text = StringHelper.getLocalConstansListByMap(mapConst, tbPattern.Text) + StringHelper.getSqlQueryByMap(map, mapConst, rtbSql.Text, cbClassName.Text);
 
             DbEntityHelper.getInstance().putUserDataFromFormLocalConstant(cboxDbName.Text, tbPattern.Text, cbClassName.Text );
-
-            // need yo save class name
+            
         }
 
         private void btnClear_Click(object sender, EventArgs e)

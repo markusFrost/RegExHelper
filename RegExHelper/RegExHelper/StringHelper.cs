@@ -122,7 +122,7 @@ namespace RegExHelper
 
         }
 
-        public static string convertSqlQueryToConstants(string dbName, string patternConst, string dbClassName )
+        public static string convertSqlQueryToConstants(string dbName, string patternConst )
         {
             string resultValue = "";
 
@@ -144,8 +144,7 @@ namespace RegExHelper
                 resultValue += map[key];
             }
 
-            // save or change date
-            DbEntityHelper.getInstance().addResultWork(dbName, resultValue, dbClassName);
+            
 
             return resultValue;
 
