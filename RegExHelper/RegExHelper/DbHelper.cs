@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace RegExHelper
 {
-    public class MyContext : DbContext
+    public class DbHelper : DbContext
     {
-        public DbSet<ResultWorkItem> ResultWorks { get; set; }
+        public DbSet<ResultItemWork> ResultItemWorks { get; set; }
+        public DbSet<ItemSavedData> ItemsSavedData { get; set; }
     }
 }

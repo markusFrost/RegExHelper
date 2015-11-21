@@ -35,6 +35,8 @@ namespace RegExHelper
             Dictionary<string, string> mapConst = StringHelper.getLocalConstansMap(rtbSql.Text);
 
             rtbResult.Text =  StringHelper.getLocalConstansListByMap(mapConst, tbPattern.Text) +   StringHelper.getSqlQueryByMap(map, mapConst, rtbSql.Text);
+
+            DbEntityHelper.getInstance().putUserDataFromFormLocalConstant(cboxDbName.Text, tbPattern.Text);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -62,6 +64,14 @@ namespace RegExHelper
             foreach (var name in listNames)
             {
                 cboxDbName.Items.Add(name);
+            }
+
+            ItemSavedData item = DbEntityHelper.getInstance().getUserSavedData();
+
+            if (item != null)
+            {
+                cboxDbName.Text = item.LastDbName;
+                tbPattern.Text = item.LocalConstPattern;
             }
         }
 

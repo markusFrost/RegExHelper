@@ -37,6 +37,8 @@
             this.lableResultText = new System.Windows.Forms.Label();
             this.cboxDbName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tbPattern = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenerate
@@ -99,7 +101,7 @@
             // cboxDbName
             // 
             this.cboxDbName.FormattingEnabled = true;
-            this.cboxDbName.Location = new System.Drawing.Point(430, 12);
+            this.cboxDbName.Location = new System.Drawing.Point(372, 11);
             this.cboxDbName.Name = "cboxDbName";
             this.cboxDbName.Size = new System.Drawing.Size(121, 21);
             this.cboxDbName.TabIndex = 16;
@@ -108,11 +110,29 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(349, 16);
+            this.label4.Location = new System.Drawing.Point(291, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "База Данных";
+            // 
+            // tbPattern
+            // 
+            this.tbPattern.Location = new System.Drawing.Point(613, 12);
+            this.tbPattern.Name = "tbPattern";
+            this.tbPattern.Size = new System.Drawing.Size(255, 20);
+            this.tbPattern.TabIndex = 18;
+            this.tbPattern.Text = "final String";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(544, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Шаблон:";
             // 
             // Form1
             // 
@@ -120,6 +140,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(1066, 640);
+            this.Controls.Add(this.tbPattern);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cboxDbName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lableResultText);
@@ -147,6 +169,8 @@
         private System.Windows.Forms.Label lableResultText;
         private System.Windows.Forms.ComboBox cboxDbName;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbPattern;
+        private System.Windows.Forms.Label label3;
     }
 }
 

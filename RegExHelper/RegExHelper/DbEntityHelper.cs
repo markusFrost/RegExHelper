@@ -21,11 +21,79 @@ namespace RegExHelper
            return instance;
        }
 
+       public void putUserDataFromFormGlobalConstant(string dbName, string globalPattern)
+       {
+           using (var db = new DbHelper())
+           {
+               var list = db.ItemsSavedData.Where(e => e.Id >= 0).ToList<ItemSavedData>();
+
+               if (list.Count == 0)
+               {
+                   ItemSavedData item = new ItemSavedData();
+                   item.LastDbName = dbName;
+                   item.GlobalConstPattern = globalPattern;
+
+                   db.ItemsSavedData.Add(item);
+               }
+               else
+               {
+                   ItemSavedData item = list[0];
+
+                   item.LastDbName = dbName;
+                   item.GlobalConstPattern = globalPattern;
+               }
+
+               db.SaveChanges();
+           }
+       }
+
+       public ItemSavedData getUserSavedData()
+       {
+           ItemSavedData item = null;
+           using (var db = new DbHelper())
+           {
+               var list = db.ItemsSavedData.Where(e => e.Id >= 0).ToList<ItemSavedData>();
+
+               if (list.Count > 0)
+               {
+                   item = list[0];
+               }
+           }
+           return item;
+       }
+
+            public void putUserDataFromFormLocalConstant( string dbName, string localPattern )
+       {
+           using (var db = new DbHelper())
+           {
+               var list = db.ItemsSavedData.Where(e => e.Id >= 0).ToList<ItemSavedData>(); 
+
+               if (list.Count == 0)
+               {
+                   ItemSavedData item = new ItemSavedData();
+                   item.LastDbName = dbName;
+                   item.LocalConstPattern = localPattern;
+
+                   db.ItemsSavedData.Add(item);
+               }
+               else
+               {
+                   ItemSavedData item = list[0];
+
+                   item.LastDbName = dbName;
+                   item.LocalConstPattern = localPattern;
+               }
+
+               db.SaveChanges();
+           }
+         
+       }
+
        public string getConstantsByDbName(string dbName)
        {
-           using (var db = new MyContext())
+           using (var db = new DbHelper())
            {
-               var rw = db.ResultWorks.Where(e => e.DbName == dbName);
+               var rw = db.ResultItemWorks.Where(e => e.DbName == dbName);
 
                if (rw.Count() == 0)
                {
@@ -33,7 +101,7 @@ namespace RegExHelper
                }
                else
                {
-                   return rw.First<ResultWorkItem>().ConstantsValues;
+                   return rw.First<ResultItemWork>().ConstantsValues;
                }
            }
        }
@@ -42,9 +110,9 @@ namespace RegExHelper
        public List<string> getDbNames()
        {
            List<string> listNames = new List<string>();
-           using (var db = new MyContext())
+           using (var db = new DbHelper())
            {
-               var list = db.ResultWorks.Where(e => e.Id >= 0).ToList<ResultWorkItem>();
+               var list = db.ResultItemWorks.Where(e => e.Id >= 0).ToList<ResultItemWork>();
 
                foreach (var item in list)
                {
@@ -56,26 +124,26 @@ namespace RegExHelper
        }
        public void addResultWork( string dbName, string resultValue )
        {
-           ResultWorkItem item = new ResultWorkItem();
+           ResultItemWork item = new ResultItemWork();
            item.DbName = dbName;
            item.ConstantsValues = resultValue;
 
            if (!wasUpdateResultWork(item))
            {
-               using (var db = new MyContext())
+               using (var db = new DbHelper())
                {
-                   db.ResultWorks.Add(item);
+                   db.ResultItemWorks.Add(item);
                    db.SaveChanges();
                }
            }
        }
 
 
-       private bool wasUpdateResultWork(ResultWorkItem item)
+       private bool wasUpdateResultWork(ResultItemWork item)
        {
-           using (var db = new MyContext())
+           using (var db = new DbHelper())
            {
-               var rw = db.ResultWorks.Where(e => e.DbName == item.DbName);
+               var rw = db.ResultItemWorks.Where(e => e.DbName == item.DbName);
 
                if (rw.Count() == 0)
                {
@@ -83,7 +151,7 @@ namespace RegExHelper
                }
                else
                {
-                   rw.First<ResultWorkItem>().ConstantsValues = item.ConstantsValues;
+                   rw.First<ResultItemWork>().ConstantsValues = item.ConstantsValues;
                    db.SaveChanges();
                    return true;
                }

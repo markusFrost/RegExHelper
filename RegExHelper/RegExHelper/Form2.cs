@@ -27,7 +27,9 @@ namespace RegExHelper
                 MessageBox.Show("Choose DataBase!");
                 return;
             }
-            rtbConstantRes.Text = StringHelper.convertSqlQueryToConstants(cboxDbName.Text, tbPattern.Text);           
+            rtbConstantRes.Text = StringHelper.convertSqlQueryToConstants(cboxDbName.Text, tbPattern.Text);
+
+            DbEntityHelper.getInstance().putUserDataFromFormGlobalConstant(cboxDbName.Text, tbPattern.Text);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -46,6 +48,14 @@ namespace RegExHelper
             foreach (var name in listNames)
             {
                 cboxDbName.Items.Add(name);
+            }
+
+            ItemSavedData item = DbEntityHelper.getInstance().getUserSavedData();
+
+            if (item != null)
+            {
+                cboxDbName.Text = item.LastDbName;
+                tbPattern.Text = item.GlobalConstPattern;
             }
         }
     }
