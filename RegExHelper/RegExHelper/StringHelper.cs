@@ -10,8 +10,54 @@ namespace RegExHelper
     public class StringHelper
     {
 
-        public static string getSqlQueryByMap(Dictionary<string, string> map, string sqlValue)
+        public  static string  getLocalConstansListByMap(  Dictionary<string, string> map, string patternConstant )
         {
+            string resultValue = "";
+            foreach (string key in map.Keys)
+            {
+                resultValue += patternConstant + " " + key + " = " + "\"" + map[key] + "\"" + ";" + "\n";
+            }
+
+            resultValue += "\n";
+
+            return resultValue;
+        }
+
+        public static Dictionary<string, string> getLocalConstansMap(string sql)
+        {
+
+            Dictionary<string, string> map = new Dictionary<string, string>();
+
+            string pattern = @"\b(?<=as)\s+\w+";
+
+            foreach (Match match in Regex.Matches(sql, pattern, RegexOptions.IgnoreCase))
+            {
+                var value = match.Value.Trim();
+                var key = value.ToUpper();
+
+                if (!map.ContainsKey(key))
+                {
+                    map.Add(key, value);
+                }
+            }
+
+            return map;
+        }
+
+        private static Dictionary<string, string> joinMaps( Dictionary<string, string> map1, Dictionary<string, string> map2)
+        {
+           foreach (string key in map2.Keys)
+            {
+               map1.Add( key, map2[key] );
+            }
+
+            return map1;
+        }
+
+        public static string getSqlQueryByMap(Dictionary<string, string> map, Dictionary<string, string> mapConst,  string sqlValue)
+        {
+            map = joinMaps(map, mapConst);
+
             foreach (string key in map.Keys)
             {
                 string replace = "";

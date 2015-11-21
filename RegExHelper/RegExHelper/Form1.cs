@@ -32,7 +32,9 @@ namespace RegExHelper
 
             Dictionary<string, string> map = StringHelper.getConstantsMap(rtbSql.Text, input);
 
-            rtbResult.Text = StringHelper.getSqlQueryByMap(map, rtbSql.Text);
+            Dictionary<string, string> mapConst = StringHelper.getLocalConstansMap(rtbSql.Text);
+
+            rtbResult.Text =  StringHelper.getLocalConstansListByMap(mapConst, tbPattern.Text) +   StringHelper.getSqlQueryByMap(map, mapConst, rtbSql.Text);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
