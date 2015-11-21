@@ -34,7 +34,7 @@ namespace RegExHelper
 
             Dictionary<string, string> mapConst = StringHelper.getLocalConstansMap(rtbSql.Text);
 
-            rtbResult.Text =  StringHelper.getLocalConstansListByMap(mapConst, tbPattern.Text) +   StringHelper.getSqlQueryByMap(map, mapConst, rtbSql.Text);
+            rtbResult.Text = StringHelper.getLocalConstansListByMap(mapConst, tbPattern.Text) + StringHelper.getSqlQueryByMap(map, mapConst, rtbSql.Text, cboxDbName.Text);
 
             DbEntityHelper.getInstance().putUserDataFromFormLocalConstant(cboxDbName.Text, tbPattern.Text);
         }

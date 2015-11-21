@@ -54,9 +54,11 @@ namespace RegExHelper
             return map1;
         }
 
-        public static string getSqlQueryByMap(Dictionary<string, string> map, Dictionary<string, string> mapConst,  string sqlValue)
+        public static string getSqlQueryByMap(Dictionary<string, string> map, Dictionary<string, string> mapConst,  string sqlValue, string dbName)
         {
             map = joinMaps(map, mapConst);
+
+            string dbClassName = dbName.Substring(0, 1).ToUpper() + dbName.Substring(1, dbName.Length - 1) + "DB";
 
             foreach (string key in map.Keys)
             {
@@ -64,6 +66,7 @@ namespace RegExHelper
 
                 replace += " \"";
                 replace += " + ";
+                replace += dbClassName + ".";
                 replace += key;
                 replace += " + ";
                 replace += "\" ";
